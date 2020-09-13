@@ -15,5 +15,12 @@ Nele você vai conseguir visualizar o progresso do projeto, adicionar e avaliar 
 - Categorização dos projetos
 - Estatísticas de satisfação de um projeto
 - Ranking dos projetos
-- Ranking das tarefas/componentes de um projeto
 
+### Telas
+
+- Tela inicial. Onde teremos a listagem de projeto e cada projeto terá uma foto, nome, categoria/label e a porcentagem de progresso. Ao clicar em um projeto será exibida a tela deste projeto. Acima da listagem teremos um campo de busca e um menu de seleção para escolher o fator de ordenação dos projetos (Por avaliação, por número de componentes, por progresso). No top teremos uma barra de navegação com as opções: início, criar projeto e relatório.
+- Tela de exibição de um projeto. Ao lado da foto teremos um botão de edição do projeto e abaixo os detalhes dele, sendo eles: nome, descrição, categoria, progresso e avaliação. Abaixo do detalhes teremos a listagem do componentes do projeto com um botão ao final para adicionar mais um componente. 
+- Tela de criação/edição de um projeto. Nessa teremos campos para cada detalhe de um projeto: imagem, nome, detalhes, categoria. Na tela de edição os campos com os detalhes estarão preenchidos com os valores atuais, mas o usuário poderá modificar esses valores e clicar no botão de salvar para efetuar a edição.
+- Tela de relatório. Aqui haverá alguns dados gerais sobre o sistema, como: Projeto mais bem avaliado, projeto mais encalhado, número de projeto em andamento, número de projetos completados e um gráfico com a porcentagem de categoria dos projeto.
+
+Esse projeto faz parte da avaliação da disciplina de [Princípios do Desenvolvimento Web](https://github.com/matheusgr/devweb)
