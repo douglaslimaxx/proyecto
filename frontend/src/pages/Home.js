@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../App.css';
+import './Home.css';
 import Project from '../components/Project';
 
 
@@ -68,7 +68,7 @@ function Home() {
       <br />
       <div id="container">
         {
-          projects.filter(project => project.name.includes(search)).map(project => <Project img={project.img} name={project.name} description={project.description} progress={project.progress} />)
+          projects.filter(project => project.name.includes(search)).map(project => <a href="/create"><Project img={project.img} name={project.name} description={project.description} progress={project.progress} /></a>)
         }
       </div>
     </div >

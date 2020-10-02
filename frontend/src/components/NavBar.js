@@ -1,12 +1,13 @@
 import React from "react";
+import './NavBar.css';
 
 function NavBar() {
 
   return (
-    <div>
+    <div className="navbar">
       <a href="/">Home</a>
-      <br />
       <a href="/create">Criar Projeto</a>
+      <a href="/">Relatório</a>
     </div>
 
   )
