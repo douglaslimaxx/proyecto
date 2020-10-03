@@ -1,13 +1,16 @@
 import React from "react";
 import './NavBar.css';
 
-function NavBar() {
+function NavBar(props) {
 
   return (
     <div className="navbar">
-      <a href="/">Home</a>
-      <a href="/create">Criar Projeto</a>
-      <a href="/">Relatório</a>
+      <div className="buttons">
+        <a href="/">Home</a>
+        <a href="/create">Criar Projeto</a>
+        <a href="/resume">Relatório</a>
+      </div>
+      <input type="search" id="searchBar" value={props.search} onChange={(e) => props.setSearch(e.target.value)} />
     </div>
 
   )

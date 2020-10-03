@@ -1,19 +1,32 @@
 .navbar { 
-  height: 40px;
   background-color: rgb(45, 27, 87); 
   color: azure;
   align-items: center;
   border: solid rgb(11, 3, 46) 3px;
   border-radius: 10px;
-  display: grid;
-  grid-template-columns: 110px 110px 110px ;
   margin: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.navbar a:hover {
+.navbar .buttons {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 110px 110px 110px;
+}
+
+.navbar .buttons a:hover {
   color: rgb(0, 0, 0); 
 }
 
-.navbar a {
+.navbar .buttons a {
   color: azure;
+}
+
+.navbar input {
+  padding: 8px;
+  border-radius: 10px;
+  height: 30px;
+  margin: 5px;
+  
 }
