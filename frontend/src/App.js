@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Switch, Route } from "react-router";
-import "./App.css";
-import Header from "./components/Header";
-import NavBar from "./components/NavBar";
-import Home from "./pages/Home";
-import Create from "./pages/Create";
-import Resume from "./pages/Resume";
+import "./style/App.css";
+import Header from "./components//Header/Header";
+import NavBar from "./components/NavBar/NavBar";
+import Home from "./pages/HomePage/Home";
+import Create from "./pages/CreatePage/Create";
+import Resume from "./pages/ResumePage/Resume";
 
 const projects = [
   {

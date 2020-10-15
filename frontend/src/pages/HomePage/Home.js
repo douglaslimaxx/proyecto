@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Home.css";
-import Project from "../components/Project";
+import Project from "../../components/Project/Project";
 
 function Home(props) {
   return (
