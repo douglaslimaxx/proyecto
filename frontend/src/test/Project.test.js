@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  render,
-  fireEvent,
-  cleanup
-} from '@testing-library/react';
+import { render, fireEvent, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Project from "../components/Project/Project";
 
@@ -15,32 +11,31 @@ const project = {
   description: "projeto de livros LGBT",
   progress: 0,
   components: [],
-}
+};
 
 const setup = (props) => {
-  const { container } = render(<Project {...props} />)
-  const name = container.querySelector(".project-name")
-  const description = container.querySelector(".project-description")
-  const progress = container.querySelector(".project-progress")
+  const { container } = render(<Project {...props} />);
+  const name = container.querySelector(".project-name");
+  const description = container.querySelector(".project-description");
+  const progress = container.querySelector(".project-progress");
   return {
     name,
     description,
-    progress
-  }
-}
+    progress,
+  };
+};
 
-test('name should be livros', () => {
-  const { name } = setup({ ...project })
-  expect(name.innerHTML).toBe("livros")
-})
+test("name should be livros", () => {
+  const { name } = setup({ ...project });
+  expect(name.innerHTML).toBe("livros");
+});
 
-test('description should be projeto de livros LGBT', () => {
-  const { description } = setup({ ...project })
-  expect(description.innerHTML).toBe("projeto de livros LGBT")
-})
+test("description should be projeto de livros LGBT", () => {
+  const { description } = setup({ ...project });
+  expect(description.innerHTML).toBe("projeto de livros LGBT");
+});
 
-test('progress should be 0', () => {
-  const { progress } = setup({ ...project })
-  expect(progress.innerHTML).toBe("0")
-})
-
+test("progress should be 0", () => {
+  const { progress } = setup({ ...project });
+  expect(progress.innerHTML).toBe("0");
+});

@@ -29,11 +29,7 @@ function App() {
         <Route
           exact
           path="/"
-          render={(props) => (
-            <Home
-              projects={projects}
-            />
-          )}
+          render={(props) => <Home projects={projects} />}
         />
         <Route path="/create" component={Create} />
         <Route path="/resume" component={Resume} />

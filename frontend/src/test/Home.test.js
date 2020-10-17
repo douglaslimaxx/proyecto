@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  render,
-  fireEvent,
-  cleanup
-} from '@testing-library/react';
+import { render, fireEvent, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Home from "../pages/HomePage/Home";
 
@@ -34,45 +30,42 @@ const projects = [
     description: "projeto de livros LGBT",
     progress: 0,
     components: [],
-  }
-]
+  },
+];
 
 const setup = (props) => {
-  const { container } = render(<Home {...props} />)
-  const input = container.querySelector("#searchBar")
-  const projectsList = container.querySelector("#container")
+  const { container } = render(<Home {...props} />);
+  const input = container.querySelector("#searchBar");
+  const projectsList = container.querySelector("#container");
   return {
     input,
     projectsList,
-    container
-  }
-}
+    container,
+  };
+};
 
 afterEach(function () {
   cleanup();
-})
+});
 
-test('project list should be empty ', () => {
-  const { projectsList } = setup({ projects: [] })
-  expect(projectsList.children.length).toBe(0)
-})
+test("project list should be empty ", () => {
+  const { projectsList } = setup({ projects: [] });
+  expect(projectsList.children.length).toBe(0);
+});
 
-test('project list should have 2 itens ', () => {
-  const { projectsList } = setup({ projects })
-  expect(projectsList.children.length).toBe(3)
-})
+test("project list should have 2 itens ", () => {
+  const { projectsList } = setup({ projects });
+  expect(projectsList.children.length).toBe(3);
+});
 
-test('one project should have livros as name ', () => {
-  const { input, projectsList } = setup({ projects })
-  fireEvent.change(input, { target: { value: 'livros' } })
-  expect(projectsList.children.length).toBe(2)
-})
+test("one project should have livros as name ", () => {
+  const { input, projectsList } = setup({ projects });
+  fireEvent.change(input, { target: { value: "livros" } });
+  expect(projectsList.children.length).toBe(2);
+});
 
-test('one project should have livros as name ', () => {
-  const { input, projectsList } = setup({ projects })
-  fireEvent.change(input, { target: { value: 'filmes' } })
-  expect(projectsList.children.length).toBe(0)
-})
-
-
-
+test("one project should have livros as name ", () => {
+  const { input, projectsList } = setup({ projects });
+  fireEvent.change(input, { target: { value: "filmes" } });
+  expect(projectsList.children.length).toBe(0);
+});
