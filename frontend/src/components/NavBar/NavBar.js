@@ -9,12 +9,6 @@ function NavBar(props) {
         <a href="/create">Criar Projeto</a>
         <a href="/resume">Relatório</a>
       </div>
-      <input
-        type="search"
-        id="searchBar"
-        value={props.search}
-        onChange={(e) => props.setSearch(e.target.value)}
-      />
     </div>
   );
 }

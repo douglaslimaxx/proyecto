@@ -33,6 +33,7 @@
     ]
   },
   "devDependencies": {
+    "nock": "^13.0.4",
     "prettier": "2.1.2"
   }
 }

@@ -8,7 +8,6 @@ import Create from "./pages/CreatePage/Create";
 import Resume from "./pages/ResumePage/Resume";
 
 function App() {
-  const [search, setSearch] = useState("");
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
@@ -25,17 +24,14 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <NavBar search={search} setSearch={setSearch} />
+      <NavBar />
       <Switch>
         <Route
           exact
           path="/"
           render={(props) => (
             <Home
-              name="Lista de projetos"
               projects={projects}
-              search={search}
-              setSearch={setSearch}
             />
           )}
         />

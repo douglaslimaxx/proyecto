@@ -13,6 +13,7 @@
   align-items: center;
   display: grid;
   grid-template-columns: 110px 110px 110px;
+  margin: 8px;
 }
 
 .navbar .buttons a:hover {
@@ -21,11 +22,4 @@
 
 .navbar .buttons a {
   color: azure;
-}
-
-.navbar input {
-  padding: 8px;
-  border-radius: 10px;
-  height: 30px;
-  margin: 5px;
 }

@@ -15,6 +15,13 @@ a img {
   height: 150px;
 }
 
+.Home input {
+  padding: 8px;
+  border-radius: 10px;
+  height: 30px;
+  margin: 15px;
+}
+
 /*.Home input {
   padding: 8px;
   border: thin blue 1px;

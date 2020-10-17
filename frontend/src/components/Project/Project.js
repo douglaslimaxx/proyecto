@@ -1,15 +1,14 @@
 import React from "react";
+import "./Project.css"
 
 function Project(props) {
   return (
     <div className="Project">
       <img src={props.img} alt="" />
-      <p>
-        <b>{props.name}</b>
-      </p>
-      <p>{props.description}</p>
-      <p>Categoria</p>
-      <p>{props.progress}</p>
+      <p className="project-name">{props.name}</p>
+      <p className="project-description">{props.description}</p>
+      <p className="project-category">Categoria</p>
+      <p className="project-progress">{props.progress}</p>
     </div>
   );
 }
