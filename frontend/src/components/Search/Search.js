@@ -5,6 +5,7 @@ function Search(props) {
     <input
       type="search"
       id="searchBar"
+      placeholder="buscar"
       value={props.search}
       onChange={(e) => props.setSearch(e.target.value)}
     />
