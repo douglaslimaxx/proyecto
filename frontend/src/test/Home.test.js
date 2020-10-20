@@ -64,7 +64,7 @@ test("one project should have livros as name ", () => {
   expect(projectsList.children.length).toBe(2);
 });
 
-test("one project should have livros as name ", () => {
+test("one project should have filmes as name ", () => {
   const { input, projectsList } = setup({ projects });
   fireEvent.change(input, { target: { value: "filmes" } });
   expect(projectsList.children.length).toBe(0);
