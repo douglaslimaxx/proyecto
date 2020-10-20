@@ -4,7 +4,7 @@ import "./style/App.css";
 import Header from "./components//Header/Header";
 import NavBar from "./components/NavBar/NavBar";
 import Home from "./pages/HomePage/Home";
-import Create from "./pages/CreatePage/Create";
+import CreatePage from "./pages/CreatePage/CreatePage";
 import Resume from "./pages/ResumePage/Resume";
 import Api from "./service/api";
 
@@ -27,7 +27,7 @@ function App() {
           path="/"
           render={(props) => <Home projects={projects} />}
         />
-        <Route path="/create" component={Create} />
+        <Route path="/create" component={CreatePage} />
         <Route path="/resume" component={Resume} />
       </Switch>
     </div>
