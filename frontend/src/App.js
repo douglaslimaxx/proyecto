@@ -6,19 +6,15 @@ import NavBar from "./components/NavBar/NavBar";
 import Home from "./pages/HomePage/Home";
 import Create from "./pages/CreatePage/Create";
 import Resume from "./pages/ResumePage/Resume";
+import Api from "./service/api";
 
 function App() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((response) => setProjects(response));
+    Api.getProjects()
+      .then(({ data }) => setProjects(data))
+      .catch(error => console.log(error))
   }, []);
 
   return (
