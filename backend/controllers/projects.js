@@ -10,16 +10,18 @@ var projects = [
       {
         name: "teste",
         done: false,
-        priority: 0
-      }, {
+        priority: 0,
+      },
+      {
         name: "teste",
         done: false,
-        priority: 0
-      }, {
+        priority: 0,
+      },
+      {
         name: "teste",
         done: false,
-        priority: 0
-      }
+        priority: 0,
+      },
     ],
   },
   {
@@ -33,16 +35,18 @@ var projects = [
       {
         name: "It",
         done: false,
-        priority: 0
-      }, {
+        priority: 0,
+      },
+      {
         name: "Monte dos ventos Uivantes",
         done: false,
-        priority: 0
-      }, {
+        priority: 0,
+      },
+      {
         name: "Dom Casmurro",
         done: false,
-        priority: 0
-      }
+        priority: 0,
+      },
     ],
   },
   {

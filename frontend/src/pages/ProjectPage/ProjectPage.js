@@ -21,16 +21,22 @@ function ProjectPage() {
             <p className="project-progress">{project.progress}</p>
           </div>
           <div className="components">
-            {(project.components.length > 0) ?
-              (project.components.map((component) => (
-                <ProjectComponent name={component.name} priority={component.priority} done={component.done} />
-              ))) : <p>Projeto sem componentes</p>
-            }
+            {project.components.length > 0 ? (
+              project.components.map((component) => (
+                <ProjectComponent
+                  name={component.name}
+                  priority={component.priority}
+                  done={component.done}
+                />
+              ))
+            ) : (
+              <p>Projeto sem componentes</p>
+            )}
           </div>
         </div>
       ) : (
-          <p>Loading</p>
-        )}
+        <p>Loading</p>
+      )}
     </div>
   );
 }
