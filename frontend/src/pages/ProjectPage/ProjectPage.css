@@ -1,0 +1,42 @@
+.project-view{
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 30% auto;
+  grid-template-rows: auto auto auto;
+  border: solid slategrey 1px;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+img {
+  border-radius: 20px;
+  height: 150px;
+  grid-row: 1/4;
+  grid-column: 1;
+}
+
+.project-description{
+  grid-row: 1;
+  grid-column: 2;
+  justify-content: start;
+}
+
+.project-category{
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.project-progress{
+  grid-row: 3;
+  grid-column: 2;
+}
+
+.components {
+  border: solid slategrey 1px;
+  border-radius: 3px;
+}

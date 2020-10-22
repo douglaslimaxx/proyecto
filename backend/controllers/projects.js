@@ -1,51 +1,79 @@
 var projects = [
   {
     id: 0,
-    name: "projeto1",
+    name: "Projeto1",
     img:
       "https://o4u.com.br/wp-content/uploads/2018/11/gest%C3%A3o-empresarial-na-pr%C3%A1tica.jpg",
-    description: "projeto de livros LGBT",
+    description: "descrição do projeto 1",
     progress: 0,
-    components: [],
+    components: [
+      {
+        name: "teste",
+        done: false,
+        priority: 0
+      }, {
+        name: "teste",
+        done: false,
+        priority: 0
+      }, {
+        name: "teste",
+        done: false,
+        priority: 0
+      }
+    ],
   },
   {
     id: 1,
-    name: "livros",
+    name: "Livros",
     img:
       "https://st.depositphotos.com/1252248/1783/i/450/depositphotos_17830541-stock-photo-open-book-with-colorful-pages.jpg",
-    description: "projeto de livros LGBT",
+    description: "livros para ler esse ano",
     progress: 0,
-    components: [],
+    components: [
+      {
+        name: "It",
+        done: false,
+        priority: 0
+      }, {
+        name: "Monte dos ventos Uivantes",
+        done: false,
+        priority: 0
+      }, {
+        name: "Dom Casmurro",
+        done: false,
+        priority: 0
+      }
+    ],
   },
   {
     id: 2,
-    name: "filmes de fantasia",
+    name: "Filmes de fantasia",
     img: "https://s.aficionados.com.br/imagens/senhordosaneis.jpg",
-    description: "projeto de livros LGBT",
+    description: "filmes de fantasia para assistir essa semana",
     progress: 0,
     components: [],
   },
   {
     id: 3,
-    name: "filmes de terror",
+    name: "Filmes de terror",
     img: "https://cdn.cinepop.com.br/2016/08/filmesdeterror2017-696x353.jpg",
-    description: "projeto de livros LGBT",
+    description: "melhores filmes de terror",
     progress: 0,
     components: [],
   },
   {
     id: 4,
-    name: "filmes da Marvel",
+    name: "Filmes da Marvel",
     img: "https://miro.medium.com/max/2560/0*qdHImq1G588SB9Ii.jpg",
-    description: "projeto de livros LGBT",
+    description: "todos os filmes da marvel",
     progress: 0,
     components: [],
   },
   {
     id: 5,
-    name: "cursos udemy",
+    name: "Cursos udemy",
     img: "https://www.udemy.com/staticx/udemy/images/v6/default-meta-image.png",
-    description: "projeto de livros LGBT",
+    description: "cursos para fazer no isolamento",
     progress: 0,
     components: [],
   },

@@ -1,0 +1,9 @@
+.Component {
+  display: grid;
+  grid-template-columns: 80% min-content;
+  justify-content: space-between;
+}
+
+span{
+  margin-left: 10px;
+}
