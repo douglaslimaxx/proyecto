@@ -2,11 +2,13 @@ import React from "react";
 import { useParams } from "react-router";
 import "./ProjectPage.css";
 import ProjectComponent from "../../components/ProjectComponent/ProjectComponent";
+import { useProjects } from "../../context/Projects";
 
-function ProjectPage(props) {
+function ProjectPage() {
   let { id } = useParams();
-  const project = props.findProjectById(id);
+  const { projects } = useProjects();
 
+  const project = projects[id];
   return (
     <div>
       {project ? (
