@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import "./Home.css";
 import Project from "../../components/Project/Project";
 import Search from "../../components/Search/Search";
+import { useProjects } from "../../context/Projects";
 
-function Home(props) {
+function Home() {
   const [search, setSearch] = useState("");
-  console.log(props);
+  const { projects } = useProjects();
 
   return (
     <div className="Home">
@@ -13,7 +14,7 @@ function Home(props) {
       <Search search={search} setSearch={setSearch} />
       <br />
       <div id="container">
-        {props.projects
+        {projects
           .filter((project) =>
             project.name.toLowerCase().includes(search.toLowerCase())
           )
