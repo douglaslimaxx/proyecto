@@ -7,6 +7,7 @@ import Home from "./pages/HomePage/Home";
 import CreatePage from "./pages/CreatePage/CreatePage";
 import Resume from "./pages/ResumePage/Resume";
 import Api from "./service/api";
+import ProjectPage from "./pages/ProjectPage/ProjectPage";
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -14,8 +15,13 @@ function App() {
   useEffect(() => {
     Api.getProjects()
       .then(({ data }) => setProjects(data))
-      .catch(error => console.log(error))
+      .catch((error) => console.log(error));
   }, []);
+
+  const findProjectById = (id) => {
+    console.log(projects);
+    return projects[id];
+  };
 
   return (
     <div className="App">
@@ -25,7 +31,13 @@ function App() {
         <Route
           exact
           path="/"
-          render={(props) => <Home projects={projects} />}
+          render={(props) => <Home {...props} projects={projects} />}
+        />
+        <Route
+          path="/projects/:id"
+          render={(props) => (
+            <ProjectPage {...props} findProjectById={findProjectById} />
+          )}
         />
         <Route path="/create" component={CreatePage} />
         <Route path="/resume" component={Resume} />

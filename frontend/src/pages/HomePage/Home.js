@@ -5,6 +5,7 @@ import Search from "../../components/Search/Search";
 
 function Home(props) {
   const [search, setSearch] = useState("");
+  console.log(props);
 
   return (
     <div className="Home">
@@ -13,9 +14,11 @@ function Home(props) {
       <br />
       <div id="container">
         {props.projects
-          .filter((project) => project.name.toLowerCase().includes(search.toLowerCase()))
+          .filter((project) =>
+            project.name.toLowerCase().includes(search.toLowerCase())
+          )
           .map((project) => (
-            <a href="/create">
+            <a href={"/projects/" + project.id}>
               <Project
                 img={project.img}
                 name={project.name}
