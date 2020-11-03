@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router";
 import "./ProjectPage.css";
 import ProjectComponent from "../../components/ProjectComponent/ProjectComponent";
+import AddComponent from "../../components/AddComponent/AddComponent";
 import { useProjects } from "../../context/Projects";
 
 function ProjectPage() {
@@ -33,6 +34,7 @@ function ProjectPage() {
               <p>Projeto sem componentes</p>
             )}
           </div>
+          <AddComponent id={id} />
         </div>
       ) : (
         <p>Loading</p>

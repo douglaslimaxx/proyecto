@@ -53,9 +53,7 @@ function CreatePage() {
         onChange={handleChange}
         placeholder="Descrição do Projeto"
       />
-      <button onClick={createProject} href="/">
-        Criar Projeto
-      </button>
+      <button onClick={createProject}>Criar Projeto</button>
     </div>
   );
 }

@@ -1,6 +1,11 @@
 var express = require("express");
 var router = express.Router();
-const { getProjects, createProject, updateProject, addComponent } = require("../controllers/projects");
+const {
+  getProjects,
+  createProject,
+  updateProject,
+  addComponent,
+} = require("../controllers/projects");
 
 /* GET home page. */
 router.get("/", getProjects);

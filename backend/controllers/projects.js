@@ -34,7 +34,7 @@ var projects = [
     components: [
       {
         name: "It",
-        done: false,
+        done: true,
         priority: 0,
       },
       {
@@ -103,8 +103,8 @@ module.exports = {
   },
 
   updateProject: (req, res) => {
-    const { id } = req.params
-    const { name, img, description } = req.body
+    const { id } = req.params;
+    const { name, img, description } = req.body;
 
     projects[id].name = name;
     projects[id].img = img;
@@ -113,14 +113,14 @@ module.exports = {
   },
 
   addComponent: (req, res) => {
-    const { id } = req.params
-    const { name, priority } = req.body
+    const { id } = req.params;
+    const { name, priority } = req.body;
 
     projects[id].components.push({
       name: name,
       done: false,
       priority: priority,
-    })
-    res.status(201).json(name)
-  }
+    });
+    res.status(201).json(name);
+  },
 };
