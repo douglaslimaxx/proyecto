@@ -13,12 +13,12 @@ var projects = [
         priority: 0,
       },
       {
-        name: "teste",
+        name: "teste1",
         done: false,
         priority: 0,
       },
       {
-        name: "teste",
+        name: "teste2",
         done: false,
         priority: 0,
       },
@@ -101,4 +101,26 @@ module.exports = {
     });
     res.status(201).json(nextId);
   },
+
+  updateProject: (req, res) => {
+    const { id } = req.params
+    const { name, img, description } = req.body
+
+    projects[id].name = name;
+    projects[id].img = img;
+    projects[id].description = description;
+    res.status(200).json(id);
+  },
+
+  addComponent: (req, res) => {
+    const { id } = req.params
+    const { name, priority } = req.body
+
+    projects[id].components.push({
+      name: name,
+      done: false,
+      priority: priority,
+    })
+    res.status(201).json(name)
+  }
 };
