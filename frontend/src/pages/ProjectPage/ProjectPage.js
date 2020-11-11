@@ -7,14 +7,17 @@ import { useProjects } from "../../context/Projects";
 
 function ProjectPage() {
   let { id } = useParams();
-  const { projects } = useProjects();
+  const { getbyid } = useProjects();
+  const project = getbyid(id);
 
-  const project = projects[id];
   return (
     <div>
       {project ? (
         <div className="project-view">
           <h2 className="project-name">{project.name}</h2>
+          <a href={"/edit/" + id}>
+            <button>Editar</button>
+          </a>
           <div className="details">
             <img src={project.img} alt="" />
             <p className="project-description">{project.description}</p>

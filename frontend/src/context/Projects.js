@@ -23,5 +23,9 @@ export function useProjects() {
       .catch((error) => console.log(error));
   }, []);
 
-  return { projects, setProjects };
+  const getbyid = (id) => {
+    return projects[id];
+  };
+
+  return { projects, setProjects, getbyid };
 }

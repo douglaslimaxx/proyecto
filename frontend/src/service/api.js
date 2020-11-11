@@ -1,6 +1,4 @@
 import axios from "axios";
-import { Component } from "react";
-import Project from "../components/Project/Project";
 
 const URL = "http://localhost:3001/";
 

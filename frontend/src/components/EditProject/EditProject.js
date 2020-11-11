@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { useHistory, useParams } from "react-router";
+import { useProjects } from "../../context/Projects";
 import Api from "../../service/api";
-import { useHistory } from "react-router-dom";
 
-function CreatePage() {
+function EditProject() {
+  let { id } = useParams();
+  const { getbyid } = useProjects();
+  const project = getbyid(id);
   const [name, setName] = useState();
   const [image, setImage] = useState();
   const [description, setDescription] = useState();
@@ -19,42 +23,43 @@ function CreatePage() {
     }
   };
 
-  const createProject = () => {
-    Api.createProject({
+  const editProject = () => {
+    Api.updateProject({
+      id: id,
       name: name,
       img: image,
       description: description,
     });
-    history.push("/");
+    history.push("/projects/" + id);
   };
 
   return (
     <div>
-      <h3>Criar Projeto</h3>
+      <h3>Editar Projeto</h3>
       <input
         type="text"
         name="name"
         value={name}
         onChange={handleChange}
-        placeholder="Nome do Projeto"
+        placeholder="Novo Nome"
       />
       <input
         type="text"
         name="image"
         value={image}
         onChange={handleChange}
-        placeholder="Link para imagem"
+        placeholder="Novo link para imagem"
       />
       <input
         type="text"
         name="description"
         value={description}
         onChange={handleChange}
-        placeholder="Descrição do Projeto"
+        placeholder="Nova descrição do Projeto"
       />
-      <button onClick={createProject}>Criar Projeto</button>
+      <button onClick={editProject}>Salvar</button>
     </div>
   );
 }
 
-export default CreatePage;
+export default EditProject;

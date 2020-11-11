@@ -8,6 +8,7 @@ import CreatePage from "./pages/CreatePage/CreatePage";
 import Resume from "./pages/ResumePage/Resume";
 import ProjectPage from "./pages/ProjectPage/ProjectPage";
 import ProjectsProvider from "./context/Projects";
+import EditProject from "./components/EditProject/EditProject";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/projects/:id" component={ProjectPage} />
           <Route path="/create" component={CreatePage} />
           <Route path="/resume" component={Resume} />
+          <Route path="/edit/:id" component={EditProject} />
         </Switch>
       </div>
     </ProjectsProvider>
