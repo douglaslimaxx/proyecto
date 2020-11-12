@@ -29,6 +29,6 @@ router.post("/projects/:id", addComponent);
 router.put("/projects/:id", doComponent);
 
 /* Delete a Component */
-router.delete("/projects/:id", deleteComponent);
+router.delete("/projects/:id/:name", deleteComponent);
 
 module.exports = router;

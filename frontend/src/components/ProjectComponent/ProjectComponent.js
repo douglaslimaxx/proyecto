@@ -8,7 +8,7 @@ function ProjectComponent(props) {
     window.location.reload();
   };
   const handleDelete = () => {
-    Api.deleteComponent(props.projectId, { name: props.name });
+    Api.deleteComponent(props.projectId, props.name);
     window.location.reload();
   }
   return (

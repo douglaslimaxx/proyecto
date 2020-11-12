@@ -13,7 +13,7 @@ function ProjectPage() {
   const history = useHistory();
 
   const handleDelete = () => {
-    Api.deleteComponent(id);
+    Api.deleteProject(id);
     history.push("/");
   }
 
