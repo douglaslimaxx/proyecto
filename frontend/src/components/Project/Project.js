@@ -7,7 +7,7 @@ function Project(props) {
       <img src={props.img} alt="" />
       <p className="project-name">{props.name}</p>
       <p className="project-description">{props.description}</p>
-      <p className="project-category">Categoria</p>
+      <p className="project-category">{props.category}</p>
       <p className="project-progress">{props.progress}</p>
     </div>
   );

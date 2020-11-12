@@ -10,6 +10,7 @@ function EditProject() {
   const [name, setName] = useState();
   const [image, setImage] = useState();
   const [description, setDescription] = useState();
+  const [category, setCategory] = useState();
   const history = useHistory();
 
   const handleChange = (e) => {
@@ -20,6 +21,8 @@ function EditProject() {
       setImage(value);
     } else if (name === "description") {
       setDescription(value);
+    } else if (name === "category") {
+      setCategory(value);
     }
   };
 
@@ -29,6 +32,7 @@ function EditProject() {
       name: name,
       img: image,
       description: description,
+      category: category,
     });
     history.push("/projects/" + id);
   };
@@ -57,6 +61,14 @@ function EditProject() {
         onChange={handleChange}
         placeholder="Nova descrição do Projeto"
       />
+      <select name="category" value={category} onChange={handleChange}>
+        <option value="livros">livros</option>
+        <option value="filmes">filmes</option>
+        <option value="cursos">cursos</option>
+        <option value="tarefas">tarefas</option>
+        <option value="locais">locais</option>
+        <option value="diversos">diversos</option>
+      </select>
       <button onClick={editProject}>Salvar</button>
     </div>
   );

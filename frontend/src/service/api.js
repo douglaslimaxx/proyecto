@@ -12,6 +12,11 @@ export default {
   getProjects: () => connection.get("/"),
   createProject: (project) => connection.post("/", project),
   updateProject: (project) => connection.put("/" + project.id, project),
+  deleteProject: (id) => connection.delete("/" + id),
   addComponent: (component, id) =>
     connection.post("/projects/" + id, component),
+  doComponent: (id, component) =>
+    connection.put("/projects/" + id, component),
+  deleteComponent: (id, component) =>
+    connection.delete("/projects/" + id, component),
 };

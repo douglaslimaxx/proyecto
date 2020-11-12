@@ -24,6 +24,7 @@ function Home() {
                 img={project.img}
                 name={project.name}
                 description={project.description}
+                category={project.category}
                 progress={project.progress}
               />
             </a>

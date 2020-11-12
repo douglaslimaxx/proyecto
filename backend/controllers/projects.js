@@ -5,6 +5,7 @@ var projects = [
     img:
       "https://o4u.com.br/wp-content/uploads/2018/11/gest%C3%A3o-empresarial-na-pr%C3%A1tica.jpg",
     description: "descrição do projeto 1",
+    category: "diversos",
     progress: 0,
     components: [
       {
@@ -30,6 +31,7 @@ var projects = [
     img:
       "https://st.depositphotos.com/1252248/1783/i/450/depositphotos_17830541-stock-photo-open-book-with-colorful-pages.jpg",
     description: "livros para ler esse ano",
+    category: "livros",
     progress: 0,
     components: [
       {
@@ -54,6 +56,7 @@ var projects = [
     name: "Filmes de fantasia",
     img: "https://s.aficionados.com.br/imagens/senhordosaneis.jpg",
     description: "filmes de fantasia para assistir essa semana",
+    category: "filmes",
     progress: 0,
     components: [],
   },
@@ -62,6 +65,7 @@ var projects = [
     name: "Filmes de terror",
     img: "https://cdn.cinepop.com.br/2016/08/filmesdeterror2017-696x353.jpg",
     description: "melhores filmes de terror",
+    category: "filmes",
     progress: 0,
     components: [],
   },
@@ -70,6 +74,7 @@ var projects = [
     name: "Filmes da Marvel",
     img: "https://miro.medium.com/max/2560/0*qdHImq1G588SB9Ii.jpg",
     description: "todos os filmes da marvel",
+    category: "filmes",
     progress: 0,
     components: [],
   },
@@ -78,6 +83,7 @@ var projects = [
     name: "Cursos udemy",
     img: "https://www.udemy.com/staticx/udemy/images/v6/default-meta-image.png",
     description: "cursos para fazer no isolamento",
+    category: "cursos",
     progress: 0,
     components: [],
   },
@@ -88,7 +94,7 @@ module.exports = {
     res.status(200).json(projects);
   },
   createProject: (req, res) => {
-    var nextId = projects.length;
+    var nextId = [...projects].pop().id + 1;
     console.log(req.body);
 
     projects.push({
@@ -96,6 +102,7 @@ module.exports = {
       name: req.body.name,
       img: req.body.img,
       description: req.body.description,
+      category: req.body.category,
       progress: 0,
       components: [],
     });
@@ -109,7 +116,16 @@ module.exports = {
     projects[id].name = name;
     projects[id].img = img;
     projects[id].description = description;
-    res.status(200).json(id);
+    (projects[id].category = category), res.status(200).json(id);
+  },
+
+  deleteProject: (req, res) => {
+    const { id } = req.params;
+    console.log(projects);
+    const removed = projects.splice(id, 1);
+    console.log(removed);
+    console.log(projects);
+    res.status(204).json(removed);
   },
 
   addComponent: (req, res) => {
@@ -123,4 +139,25 @@ module.exports = {
     });
     res.status(201).json(name);
   },
+
+  doComponent: (req, res) => {
+    const { id } = req.params;
+    const { name } = req.body;
+    index = projects[id].components.findIndex(
+      (component) => component.name === name
+    );
+
+    projects[id].components[index].done = true;
+    res.status(200).json(index);
+  },
+
+  deleteComponent: (req, res) => {
+    const { id } = req.params;
+    const { name } = req.body;
+    index = projects[id].components.findIndex(
+      (component) => component.name === name
+    );
+    const removed = projects[id].components.splice(index, 1);
+    res.status(200).json(removed);
+  }
 };

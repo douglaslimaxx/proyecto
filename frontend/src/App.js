@@ -8,7 +8,7 @@ import CreatePage from "./pages/CreatePage/CreatePage";
 import Resume from "./pages/ResumePage/Resume";
 import ProjectPage from "./pages/ProjectPage/ProjectPage";
 import ProjectsProvider from "./context/Projects";
-import EditProject from "./components/EditProject/EditProject";
+import EditProject from "./pages/EditProject/EditProject";
 
 function App() {
   return (
