@@ -111,12 +111,13 @@ module.exports = {
 
   updateProject: (req, res) => {
     const { id } = req.params;
-    const { name, img, description } = req.body;
+    const { name, img, description, category } = req.body;
 
     projects[id].name = name;
     projects[id].img = img;
     projects[id].description = description;
-    (projects[id].category = category), res.status(200).json(id);
+    projects[id].category = category;
+    res.status(200).json(id);
   },
 
   deleteProject: (req, res) => {

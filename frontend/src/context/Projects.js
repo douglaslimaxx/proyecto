@@ -19,7 +19,7 @@ export function useProjects() {
 
   useEffect(() => {
     Api.getProjects()
-      .then(({ data }) => setProjects(data))
+      .then((data) => setProjects(data))
       .catch((error) => console.log(error));
   }, []);
 

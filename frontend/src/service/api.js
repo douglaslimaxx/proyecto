@@ -9,7 +9,12 @@ const connection = axios.create({
 });
 
 export default {
-  getProjects: () => connection.get("/"),
+  getProjects: () => {
+    return connection
+      .get("/")
+      .then((response) => response.data)
+      .catch((error) => error.response.data);
+  },
   createProject: (project) => connection.post("/", project),
   updateProject: (project) => connection.put("/" + project.id, project),
   deleteProject: (id) => connection.delete("/" + id),

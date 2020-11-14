@@ -34,6 +34,7 @@ function Home() {
         <option value="locais">locais</option>
         <option value="diversos">diversos</option>
       </select>
+      {/* <div>{projects[0].name}</div> */}
       <div id="container">
         {projects
           .filter((project) =>
