@@ -15,7 +15,7 @@ function ProjectPage() {
   const handleDelete = () => {
     Api.deleteProject(id);
     history.push("/");
-  }
+  };
 
   return (
     <div>
@@ -43,14 +43,14 @@ function ProjectPage() {
                 />
               ))
             ) : (
-                <p>Projeto sem componentes</p>
-              )}
+              <p>Projeto sem componentes</p>
+            )}
           </div>
           <AddComponent id={id} />
         </div>
       ) : (
-          <p>Loading</p>
-        )}
+        <p>Loading</p>
+      )}
     </div>
   );
 }

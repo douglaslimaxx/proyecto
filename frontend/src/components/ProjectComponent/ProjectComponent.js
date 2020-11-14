@@ -10,15 +10,15 @@ function ProjectComponent(props) {
   const handleDelete = () => {
     Api.deleteComponent(props.projectId, props.name);
     window.location.reload();
-  }
+  };
   return (
     <div className="component">
       <span>{props.name}</span>
       {props.done ? (
         <span>Realizado</span>
       ) : (
-          <button onClick={handleClick}>realizar</button>
-        )}
+        <button onClick={handleClick}>realizar</button>
+      )}
       <button onClick={handleDelete}>delete</button>
     </div>
   );

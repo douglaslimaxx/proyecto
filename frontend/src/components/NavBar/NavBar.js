@@ -7,7 +7,7 @@ function NavBar(props) {
       <div className="buttons">
         <a href="/">Home</a>
         <a href="/create">Criar Projeto</a>
-        <a href="/resume">Relatório</a>
+        {/* <a href="/resume">Relatório</a> */}
       </div>
     </div>
   );

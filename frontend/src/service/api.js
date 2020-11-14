@@ -15,8 +15,7 @@ export default {
   deleteProject: (id) => connection.delete("/" + id),
   addComponent: (component, id) =>
     connection.post("/projects/" + id, component),
-  doComponent: (id, component) =>
-    connection.put("/projects/" + id, component),
+  doComponent: (id, component) => connection.put("/projects/" + id, component),
   deleteComponent: (id, name) =>
     connection.delete("/projects/" + id + "/" + name),
 };

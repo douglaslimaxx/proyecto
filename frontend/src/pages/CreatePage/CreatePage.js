@@ -57,7 +57,6 @@ function CreatePage() {
         placeholder="Descrição do Projeto"
       />
       <select name="category" value={category} onChange={handleChange}>
-        <option value="diversos">diversos</option>
         <option value="livros">livros</option>
         <option value="filmes">filmes</option>
         <option value="cursos">cursos</option>

@@ -162,5 +162,5 @@ module.exports = {
     console.log(index);
     const removed = projects[id].components.splice(index, 1);
     res.status(200).json(removed);
-  }
+  },
 };
