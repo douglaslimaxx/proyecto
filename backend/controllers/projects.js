@@ -95,7 +95,6 @@ module.exports = {
   },
   createProject: (req, res) => {
     var nextId = [...projects].pop().id + 1;
-    console.log(req.body);
 
     projects.push({
       id: nextId,
@@ -123,7 +122,6 @@ module.exports = {
   deleteProject: (req, res) => {
     const { id } = req.params;
     const removed = projects.splice(id, 1);
-    console.log(removed);
     res.status(204).json(removed);
   },
 
@@ -142,8 +140,6 @@ module.exports = {
   doComponent: (req, res) => {
     const { id } = req.params;
     const { name } = req.body;
-    console.log(req.body);
-    console.log(name);
     index = projects[id].components.findIndex(
       (component) => component.name === name
     );
@@ -154,13 +150,9 @@ module.exports = {
 
   deleteComponent: (req, res) => {
     const { id, name } = req.params;
-    // const { name } = req.body;
-    console.log(req);
-    console.log(name);
     index = projects[id].components.findIndex(
       (component) => component.name === name
     );
-    console.log(index);
     const removed = projects[id].components.splice(index, 1);
     res.status(200).json(removed);
   },

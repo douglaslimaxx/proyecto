@@ -7,16 +7,11 @@ function EditProject() {
   let { id } = useParams();
   const { projects } = useProjects();
   const project = projects[id];
-  if (project === undefined) {
-    console.log("project is undefined");
-    console.log(projects);
-  }
-  const [name, setName] = useState("nome");
-  const [image, setImage] = useState(
-    "https://res.cloudinary.com/practicaldev/image/fetch/s--FMvdrwFV--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/e9q8v5vtauil8e0g78be.png"
-  );
-  const [description, setDescription] = useState("descrição");
-  const [category, setCategory] = useState("locais");
+
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
   const history = useHistory();
 
   const handleChange = (e) => {
