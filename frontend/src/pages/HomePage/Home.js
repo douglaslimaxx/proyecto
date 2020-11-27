@@ -35,7 +35,7 @@ function Home() {
         <option value="diversos">diversos</option>
       </select>
       <div id="container">
-        {projects
+        {Object.values(projects)
           .filter((project) =>
             project.name.toLowerCase().includes(search.toLowerCase())
           )

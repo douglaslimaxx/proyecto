@@ -91,6 +91,7 @@
 
 var projects = {
   0: {
+    id: 0,
     name: "Livros",
     img:
       "https://st.depositphotos.com/1252248/1783/i/450/depositphotos_17830541-stock-photo-open-book-with-colorful-pages.jpg",
@@ -116,6 +117,7 @@ var projects = {
     ],
   },
   1: {
+    id: 1,
     name: "Filmes de fantasia",
     img: "https://s.aficionados.com.br/imagens/senhordosaneis.jpg",
     description: "filmes de fantasia para assistir essa semana",
@@ -132,7 +134,7 @@ module.exports = {
   },
   createProject: (req, res) => {
     // var nextId = [...projects].pop().id + 1;
-    var nextId = Math.max(...Object.keys(projects));
+    var nextId = Math.max(...Object.keys(projects)) + 1;
 
     projects[nextId] = {
       id: nextId,
