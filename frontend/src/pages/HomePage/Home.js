@@ -41,7 +41,7 @@ function Home() {
           )
           .filter((project) => project.category.includes(categorySelect))
           .map((project) => (
-            <a href={"/projects/" + project.id}>
+            <a href={"/projects/" + project.id} key={project.id}>
               <Project
                 img={project.img}
                 name={project.name}
