@@ -1,94 +1,3 @@
-// var projects = [
-//   {
-//     id: 0,
-//     name: "Projeto1",
-//     img:
-//       "https://o4u.com.br/wp-content/uploads/2018/11/gest%C3%A3o-empresarial-na-pr%C3%A1tica.jpg",
-//     description: "descrição do projeto 1",
-//     category: "diversos",
-//     progress: 0,
-//     components: [
-//       {
-//         name: "teste",
-//         done: false,
-//         priority: 0,
-//       },
-//       {
-//         name: "teste1",
-//         done: false,
-//         priority: 0,
-//       },
-//       {
-//         name: "teste2",
-//         done: false,
-//         priority: 0,
-//       },
-//     ],
-//   },
-//   {
-//     id: 1,
-//     name: "Livros",
-//     img:
-//       "https://st.depositphotos.com/1252248/1783/i/450/depositphotos_17830541-stock-photo-open-book-with-colorful-pages.jpg",
-//     description: "livros para ler esse ano",
-//     category: "livros",
-//     progress: 0,
-//     components: [
-//       {
-//         name: "It",
-//         done: true,
-//         priority: 0,
-//       },
-//       {
-//         name: "Monte dos ventos Uivantes",
-//         done: false,
-//         priority: 0,
-//       },
-//       {
-//         name: "Dom Casmurro",
-//         done: false,
-//         priority: 0,
-//       },
-//     ],
-//   },
-//   {
-//     id: 2,
-//     name: "Filmes de fantasia",
-//     img: "https://s.aficionados.com.br/imagens/senhordosaneis.jpg",
-//     description: "filmes de fantasia para assistir essa semana",
-//     category: "filmes",
-//     progress: 0,
-//     components: [],
-//   },
-//   {
-//     id: 3,
-//     name: "Filmes de terror",
-//     img: "https://cdn.cinepop.com.br/2016/08/filmesdeterror2017-696x353.jpg",
-//     description: "melhores filmes de terror",
-//     category: "filmes",
-//     progress: 0,
-//     components: [],
-//   },
-//   {
-//     id: 4,
-//     name: "Filmes da Marvel",
-//     img: "https://miro.medium.com/max/2560/0*qdHImq1G588SB9Ii.jpg",
-//     description: "todos os filmes da marvel",
-//     category: "filmes",
-//     progress: 0,
-//     components: [],
-//   },
-//   {
-//     id: 5,
-//     name: "Cursos udemy",
-//     img: "https://www.udemy.com/staticx/udemy/images/v6/default-meta-image.png",
-//     description: "cursos para fazer no isolamento",
-//     category: "cursos",
-//     progress: 0,
-//     components: [],
-//   },
-// ];
-
 var projects = {
   0: {
     id: 0,
@@ -133,8 +42,10 @@ module.exports = {
     res.status(200).json(projects);
   },
   createProject: (req, res) => {
-    // var nextId = [...projects].pop().id + 1;
     var nextId = Math.max(...Object.keys(projects)) + 1;
+    if (Object.keys(projects).length < 1) {
+      nextId = 0;
+    };
 
     projects[nextId] = {
       id: nextId,
@@ -145,15 +56,6 @@ module.exports = {
       progress: 0,
       components: [],
     };
-    // projects.push({
-    //   id: nextId,
-    //   name: req.body.name,
-    //   img: req.body.img,
-    //   description: req.body.description,
-    //   category: req.body.category,
-    //   progress: 0,
-    //   components: [],
-    // });
     res.status(201).json(nextId);
   },
 
@@ -170,7 +72,6 @@ module.exports = {
 
   deleteProject: (req, res) => {
     const { id } = req.params;
-    // const removed = projects.splice(id, 1);
     const removed = delete projects[id];
     res.status(204).json(removed);
   },
