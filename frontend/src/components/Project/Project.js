@@ -4,16 +4,16 @@ import "./Project.css";
 function Project(props) {
   const getProgress = (components) => {
     if (components.length < 1) {
-      return ("0%");
+      return "0%";
     }
     var done = 0;
     for (var i in components) {
       if (components[i].done) {
-        done += 1
-      };
-    };
-    const per = (done / components.length) * 100
-    return (per.toFixed(2) + "%");
+        done += 1;
+      }
+    }
+    const per = (done / components.length) * 100;
+    return per.toFixed(2) + "%";
   };
 
   return (

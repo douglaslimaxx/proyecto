@@ -21,7 +21,7 @@ export function useProjects() {
     Api.getProjects()
       .then((data) => setProjects(data))
       .catch((error) => console.log(error));
-  }, []);
+  }, [setProjects]);
 
   const getbyid = (id) => {
     return projects[id];
