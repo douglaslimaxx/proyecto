@@ -47,7 +47,7 @@ function Home() {
                 name={project.name}
                 description={project.description}
                 category={project.category}
-                progress={project.progress}
+                components={project.components}
               />
             </a>
           ))}
