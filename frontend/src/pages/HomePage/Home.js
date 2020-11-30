@@ -70,9 +70,9 @@ function Home() {
       </select>
       <span>Ordenar por: </span>
       <select name="sort-select" value={sortSelect} onChange={handleSelect}>
-        <option value="ID">Por id</option>
-        <option value="COMPONENTS">Por número de Componentes</option>
-        <option value="PROGRESS">Por progresso</option>
+        <option value="ID">Id</option>
+        <option value="COMPONENTS">Número de Componentes</option>
+        <option value="PROGRESS">Progresso</option>
       </select>
       <div id="container">
         {Object.values(projects)
