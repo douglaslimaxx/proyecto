@@ -34,7 +34,6 @@ var projects = {
     progress: 0,
     components: [],
   },
-
 };
 
 module.exports = {
@@ -45,7 +44,7 @@ module.exports = {
     var nextId = Math.max(...Object.keys(projects)) + 1;
     if (Object.keys(projects).length < 1) {
       nextId = 0;
-    };
+    }
 
     projects[nextId] = {
       id: nextId,
