@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Home.css";
 import Project from "../../components/Project/Project";
 import Search from "../../components/Search/Search";
@@ -8,7 +8,21 @@ function Home() {
   const [search, setSearch] = useState("");
   const { projects } = useProjects();
   const [categorySelect, setCategorySelect] = useState("");
-  const [pro, setPro] = useState();
+
+  const ORDER_BY = {
+    ID: { label: "id", comparator: (a, b) => a.id - b.id },
+    COMPONENTS: {
+      label: "components",
+      comparator: (a, b) => a.components.length - b.components.length,
+    },
+    PROGRESS: {
+      label: "progress",
+      comparator: (a, b) =>
+        getProgress(a.components) - getProgress(b.components),
+    },
+  };
+
+  const [sortSelect, setSortSelect] = useState("ID");
 
   const getProgress = (components) => {
     if (components.length < 1) {
@@ -24,33 +38,11 @@ function Home() {
     return per.toFixed(2);
   };
 
-  const sortById = (a, b) => {
-    return a.id - b.id;
-  };
-
-  const sortByNumberOfComponents = (a, b) => {
-    return a.components.length - b.components.length;
-  };
-
-  const sortByProgress = (a, b) => {
-    return getProgress(a.components) - getProgress(b.components);
-  };
-
-  const [sortSelect, setSortSelect] = useState("");
-
-  useEffect(() => {
-    setPro(Object.values(projects));
-    if (sortSelect === "progress") {
-      setPro(Object.values(projects).sort(sortByProgress));
-    }
-  }, [projects, setPro]);
-
   const handleSelect = (e) => {
     const { name, value } = e.target;
     if (name === "category-select") {
       setCategorySelect(value);
     } else if (name === "sort-select") {
-      console.log(value);
       setSortSelect(value);
     }
   };
@@ -77,43 +69,18 @@ function Home() {
         <option value="diversos">diversos</option>
       </select>
       <span>Ordenar por: </span>
-      <select
-        name="sort-select"
-        value={sortSelect}
-        onChange={handleSelect}
-      >
-        <option value="id">Por id</option>
-        <option value="components">Por número de Componentes</option>
-        <option value="progress">Por progresso</option>
+      <select name="sort-select" value={sortSelect} onChange={handleSelect}>
+        <option value="ID">Por id</option>
+        <option value="COMPONENTS">Por número de Componentes</option>
+        <option value="PROGRESS">Por progresso</option>
       </select>
-      <div>
-        {pro ? (
-          <div id="container">
-            {pro
-              .filter((project) =>
-                project.name.toLowerCase().includes(search.toLowerCase())
-              )
-              .filter((project) => project.category.includes(categorySelect))
-              .map((project) => (
-                <a href={"/projects/" + project.id} key={project.id}>
-                  <Project
-                    img={project.img}
-                    name={project.name}
-                    description={project.description}
-                    category={project.category}
-                    components={project.components}
-                  />
-                </a>
-              ))}
-          </div>
-        ) : (<p>Loading</p>)}
-      </div>
-      {/* <div id="container">
-        {pro
+      <div id="container">
+        {Object.values(projects)
           .filter((project) =>
             project.name.toLowerCase().includes(search.toLowerCase())
           )
           .filter((project) => project.category.includes(categorySelect))
+          .sort(ORDER_BY[sortSelect].comparator)
           .map((project) => (
             <a href={"/projects/" + project.id} key={project.id}>
               <Project
@@ -125,7 +92,7 @@ function Home() {
               />
             </a>
           ))}
-      </div> */}
+      </div>
     </div>
   );
 }
