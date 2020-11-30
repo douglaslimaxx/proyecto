@@ -39,4 +39,9 @@ img {
 .components {
   border: solid slategrey 1px;
   border-radius: 3px;
+  padding: 5px;
+}
+
+.components > :last-child {
+  margin-bottom: 0px;
 }

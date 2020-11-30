@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import Project from "../../components/Project/Project";
 import Search from "../../components/Search/Search";
@@ -82,7 +83,11 @@ function Home() {
           .filter((project) => project.category.includes(categorySelect))
           .sort(ORDER_BY[sortSelect].comparator)
           .map((project) => (
-            <a href={"/projects/" + project.id} key={project.id}>
+            <Link
+              className="project-link"
+              to={"/projects/" + project.id}
+              key={project.id}
+            >
               <Project
                 img={project.img}
                 name={project.name}
@@ -90,7 +95,7 @@ function Home() {
                 category={project.category}
                 components={project.components}
               />
-            </a>
+            </Link>
           ))}
       </div>
     </div>

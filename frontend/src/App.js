@@ -9,14 +9,13 @@ import ProjectPage from "./pages/ProjectPage/ProjectPage";
 import ProjectsProvider from "./context/Projects";
 import EditProject from "./pages/EditProject/EditProject";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.min.css';
+import "react-toastify/dist/ReactToastify.min.css";
 
 function App() {
   return (
     <div className="App">
       <ToastContainer />
       <ProjectsProvider>
-
         <Header />
         <NavBar />
         <Switch>
@@ -25,7 +24,6 @@ function App() {
           <Route path="/create" component={CreatePage} />
           <Route path="/edit/:id" component={EditProject} />
         </Switch>
-
       </ProjectsProvider>
     </div>
   );

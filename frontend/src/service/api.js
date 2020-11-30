@@ -10,10 +10,7 @@ const connection = axios.create({
 
 export default {
   getProjects: () => {
-    return connection
-      .get("/")
-      .then((response) => response.data)
-      .catch((error) => error.response.data);
+    return connection.get("/");
   },
   createProject: (project) => connection.post("/", project),
   updateProject: (project) => connection.put("/" + project.id, project),

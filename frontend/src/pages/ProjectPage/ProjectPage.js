@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory, useParams } from "react-router";
+import { Link } from "react-router-dom";
 import "./ProjectPage.css";
 import ProjectComponent from "../../components/ProjectComponent/ProjectComponent";
 import AddComponent from "../../components/AddComponent/AddComponent";
@@ -8,8 +9,8 @@ import Api from "../../service/api";
 
 function ProjectPage() {
   let { id } = useParams();
-  const { getbyid } = useProjects();
-  const project = getbyid(id);
+  const { projects } = useProjects();
+  const project = projects[id];
   const history = useHistory();
 
   const handleDelete = () => {
@@ -36,9 +37,9 @@ function ProjectPage() {
       {project ? (
         <div className="project-view">
           <h2 className="project-name">{project.name}</h2>
-          <a href={"/edit/" + id}>
+          <Link to={`/edit/${id}`}>
             <button>Editar</button>
-          </a>
+          </Link>
           <button onClick={handleDelete}>delete</button>
           <div className="details">
             <img src={project.img} alt="" />
@@ -63,7 +64,7 @@ function ProjectPage() {
               <p>Projeto sem componentes</p>
             )}
           </div>
-          <AddComponent id={id} />
+          <AddComponent components={"a"} id={id} />
         </div>
       ) : (
         <p>Loading</p>

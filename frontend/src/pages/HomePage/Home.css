@@ -4,19 +4,20 @@ div#container {
   justify-content: center;
 }
 
-.Home a {
+.project-link {
   color: rgb(0, 0, 0);
   border: solid slategrey 1px;
   border-radius: 10px;
   margin: 4px;
+  text-decoration: none;
 }
 
-.Home a:hover {
+.project-link:hover {
   color: azure;
   background-color: rgb(153, 144, 161);
 }
 
-a img {
+.project-link img {
   border-radius: 20px;
   height: 150px;
 }

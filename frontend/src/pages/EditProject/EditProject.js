@@ -6,12 +6,14 @@ import { useProjects } from "../../context/Projects";
 function EditProject() {
   let { id } = useParams();
   const { projects } = useProjects();
-  const project = projects[id];
 
-  const [name, setName] = useState("");
-  const [image, setImage] = useState("");
-  const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
+  const project = projects[id];
+  console.log(project);
+
+  const [name, setName] = useState(project.name);
+  const [image, setImage] = useState(project.img);
+  const [description, setDescription] = useState(project.description);
+  const [category, setCategory] = useState(project.category);
   const history = useHistory();
 
   const handleChange = (e) => {
