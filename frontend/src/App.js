@@ -8,11 +8,15 @@ import CreatePage from "./pages/CreatePage/CreatePage";
 import ProjectPage from "./pages/ProjectPage/ProjectPage";
 import ProjectsProvider from "./context/Projects";
 import EditProject from "./pages/EditProject/EditProject";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.min.css';
 
 function App() {
   return (
-    <ProjectsProvider>
-      <div className="App">
+    <div className="App">
+      <ToastContainer />
+      <ProjectsProvider>
+
         <Header />
         <NavBar />
         <Switch>
@@ -21,8 +25,9 @@ function App() {
           <Route path="/create" component={CreatePage} />
           <Route path="/edit/:id" component={EditProject} />
         </Switch>
-      </div>
-    </ProjectsProvider>
+
+      </ProjectsProvider>
+    </div>
   );
 }
 

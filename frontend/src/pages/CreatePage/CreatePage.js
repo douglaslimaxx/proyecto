@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Api from "../../service/api";
 import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function CreatePage() {
   const [name, setName] = useState();
@@ -29,9 +30,23 @@ function CreatePage() {
       description: description,
       category: category,
     });
-    history.push("/");
+    toast.success("Projeto criado com sucesso!")
   };
 
+  const handleCreation = () => {
+    if (!name) {
+
+    } else if (!image) {
+
+    } else if (!description) {
+
+    } else if (!category) {
+
+    } else {
+      createProject();
+      history.push("/");
+    }
+  }
   return (
     <div>
       <h3>Criar Projeto</h3>
@@ -64,7 +79,7 @@ function CreatePage() {
         <option value="locais">locais</option>
         <option value="diversos">diversos</option>
       </select>
-      <button onClick={createProject}>Criar Projeto</button>
+      <button onClick={handleCreation}>Criar Projeto</button>
     </div>
   );
 }
