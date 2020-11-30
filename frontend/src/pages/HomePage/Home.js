@@ -21,6 +21,7 @@ function Home() {
       comparator: (a, b) =>
         getProgress(a.components) - getProgress(b.components),
     },
+    NAME: { label: "name", comparator: (a, b) => a.name.localeCompare(b.name) },
   };
 
   const [sortSelect, setSortSelect] = useState("ID");
@@ -72,6 +73,7 @@ function Home() {
       <span>Ordenar por: </span>
       <select name="sort-select" value={sortSelect} onChange={handleSelect}>
         <option value="ID">Id</option>
+        <option value="NAME">Nome</option>
         <option value="COMPONENTS">Número de Componentes</option>
         <option value="PROGRESS">Progresso</option>
       </select>
