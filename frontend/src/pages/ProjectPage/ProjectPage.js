@@ -64,7 +64,7 @@ function ProjectPage() {
               <p>Projeto sem componentes</p>
             )}
           </div>
-          <AddComponent components={"a"} id={id} />
+          <AddComponent components={project.components} id={id} />
         </div>
       ) : (
         <p>Loading</p>

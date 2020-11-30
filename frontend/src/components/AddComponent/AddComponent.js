@@ -16,16 +16,15 @@ function AddComponent(props) {
   };
 
   const verifyNameDuplicate = () => {
-    // console.log(props.id); //0
-    for (var component in props.components) {
-      console.log(component);
-      console.log(name);
-      return component.name === name;
+    for (var i in props.components) {
+      if (props.components[i].name === name) {
+        return true;
+      }
     }
+    return false;
   };
 
   const addComponent = () => {
-    // console.log(props.id); //1
     Api.addComponent(
       {
         name: name,
@@ -37,11 +36,10 @@ function AddComponent(props) {
   };
 
   const handleAdd = () => {
-    console.log(props.id);
     if (!name) {
       toast.error("O nome deve ser inserido");
     } else if (verifyNameDuplicate()) {
-      toast.error("Projeto não pode ter projetos com o mesmo nome");
+      toast.error("Projeto não pode ter componentes com o mesmo nome");
     } else if (!priority) {
       toast.error("Prioridade do componente deve ser inserida");
     } else if (isNaN(priority)) {
