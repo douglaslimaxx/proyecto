@@ -32,16 +32,21 @@ function CreatePage() {
     });
     toast.success("Projeto criado com sucesso!")
   };
+  function checkURL(url) {
+    return (url.match(/\.(apng|avif|gif|jpg|jpeg|jfif|pjpeg|pjp|png|svg|webp)$/) != null);
+  }
 
   const handleCreation = () => {
     if (!name) {
-
+      toast.error("O nome do projeto deve ser inserido")
     } else if (!image) {
-
+      toast.error("O link para imagem deve ser inserido")
+    } else if (!checkURL(image)) {
+      toast.error("O link deve ser de uma imagem")
     } else if (!description) {
-
+      toast.error("A descrição do projeto deve ser inserida")
     } else if (!category) {
-
+      toast.error("A categoria do projeto deve ser inserida")
     } else {
       createProject();
       history.push("/");
