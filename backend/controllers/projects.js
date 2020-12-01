@@ -6,7 +6,6 @@ var projects = {
       "https://st.depositphotos.com/1252248/1783/i/450/depositphotos_17830541-stock-photo-open-book-with-colorful-pages.jpg",
     description: "livros para ler esse ano",
     category: "livros",
-    progress: 0,
     components: [
       {
         name: "It",
@@ -31,8 +30,84 @@ var projects = {
     img: "https://s.aficionados.com.br/imagens/senhordosaneis.jpg",
     description: "filmes de fantasia para assistir essa semana",
     category: "filmes",
-    progress: 0,
     components: [],
+  },
+  2: {
+    id: 2,
+    name: "Filmes da Marvel",
+    img: "https://br.web.img3.acsta.net/newsv7/19/04/22/20/34/5550692.jpg",
+    description: "filmes da Marvel para assistir na quarentena",
+    category: "filmes",
+    components: [
+      {
+        name: "Homem de Ferro 1",
+        done: true,
+        priority: 0,
+      },
+      {
+        name: "Homem de Ferro 2",
+        done: true,
+        priority: 0,
+      },
+      {
+        name: "Homem de Ferro 3",
+        done: false,
+        priority: 0,
+      },
+      {
+        name: "Thor 1",
+        done: false,
+        priority: 0,
+      },
+      {
+        name: "Doutor Estranho",
+        done: true,
+        priority: 0,
+      },
+      {
+        name: "Guardiões da Galáxia",
+        done: true,
+        priority: 0,
+      },
+    ],
+  },
+  3: {
+    id: 3,
+    name: "Cursos de python",
+    img: "https://www.udemy.com/staticx/udemy/images/v6/default-meta-image.png",
+    description: "filmes de fantasia para assistir essa semana",
+    category: "cursos",
+    components: [
+      {
+        name: "Curso de python para iniciantes",
+        done: true,
+        priority: 10,
+      },
+      {
+        name: "Curso de análise de dados com python",
+        done: false,
+        priority: 10,
+      }
+    ],
+  },
+  4: {
+    id: 4,
+    name: "Task da semana no epol",
+    img: "https://www.letscloud.io/blog/wp-content/uploads/2019/07/tools-of-sys-admin.jpg",
+    description: "Lista de tarefas para terminar essa semana na epol",
+    category: "tarefas",
+    components: [
+      {
+        name: "Analisar servidor",
+        done: true,
+        priority: 10,
+      },
+      {
+        name: "Deploy de aplicação",
+        done: true,
+        priority: 5,
+      },
+    ],
   },
 };
 
@@ -52,7 +127,6 @@ module.exports = {
       img: req.body.img,
       description: req.body.description,
       category: req.body.category,
-      progress: 0,
       components: [],
     };
     res.status(201).json(nextId);
