@@ -75,8 +75,8 @@ function EditProject() {
           <button onClick={editProject}>Salvar</button>
         </div>
       ) : (
-          <p>Loading</p>
-        )}
+        <p>Loading</p>
+      )}
       <div className="preview">
         <img src={image} alt="" />
         <h6>Preview</h6>

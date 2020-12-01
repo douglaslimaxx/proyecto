@@ -2,7 +2,7 @@ import React from "react";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
 
-function NavBar(props) {
+function NavBar() {
   return (
     <div className="navbar">
       <div className="buttons">

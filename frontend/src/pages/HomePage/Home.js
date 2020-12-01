@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 import Project from "../../components/Project/Project";
 import Search from "../../components/Search/Search";
+import FilterSelect from "../../components/FilterSelect/FilterSelect";
+import SortSelect from "../../components/SortSelect/SortSelect";
 import { useProjects } from "../../context/ProjectsContext";
 
 function Home() {
@@ -54,29 +56,11 @@ function Home() {
       <h2>Lista de projetos</h2>
       <Search search={search} setSearch={setSearch} />
       <br />
-      <span>Filtrar por categoria: </span>
-      <select
-        name="category-select"
-        value={categorySelect}
-        onChange={handleSelect}
-        title={"Filtrar"}
-        placeholder={"Filtrar"}
-      >
-        <option value=""></option>
-        <option value="livros">livros</option>
-        <option value="filmes">filmes</option>
-        <option value="cursos">cursos</option>
-        <option value="tarefas">tarefas</option>
-        <option value="locais">locais</option>
-        <option value="diversos">diversos</option>
-      </select>
-      <span>Ordenar por: </span>
-      <select name="sort-select" value={sortSelect} onChange={handleSelect}>
-        <option value="ID">Id</option>
-        <option value="NAME">Nome</option>
-        <option value="COMPONENTS">Número de Componentes</option>
-        <option value="PROGRESS">Progresso</option>
-      </select>
+      <FilterSelect
+        categorySelect={categorySelect}
+        handleSelect={handleSelect}
+      />
+      <SortSelect sortSelect={sortSelect} handleSelect={handleSelect} />
       <div id="container">
         {Object.values(projects)
           .filter((project) =>
