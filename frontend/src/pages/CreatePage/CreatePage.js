@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Api from "../../service/api";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useProjects } from "../../context/ProjectsContext";
 
 function CreatePage() {
   const [name, setName] = useState();
@@ -9,6 +10,7 @@ function CreatePage() {
   const [description, setDescription] = useState();
   const [category, setCategory] = useState("diversos");
   const history = useHistory();
+  const { createProject } = useProjects();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,14 +25,16 @@ function CreatePage() {
     }
   };
 
-  const createProject = () => {
-    Api.createProject({
+  const create = () => {
+    createProject({
       name: name,
       img: image,
       description: description,
       category: category,
+    }).then((data) => {
+      console.log(data);
+      history.push("/projects/" + data);
     });
-    toast.success("Projeto criado com sucesso!");
   };
 
   function checkURL(url) {
@@ -52,10 +56,10 @@ function CreatePage() {
     } else if (!category) {
       toast.error("A categoria do projeto deve ser inserida");
     } else {
-      createProject();
-      history.push("/");
+      create();
     }
   };
+
   return (
     <div>
       <h3>Criar Projeto</h3>
@@ -89,6 +93,10 @@ function CreatePage() {
         <option value="diversos">diversos</option>
       </select>
       <button onClick={handleCreation}>Criar Projeto</button>
+      <div className="preview">
+        <img src={image} alt="" />
+        <h6>Preview</h6>
+      </div>
     </div>
   );
 }

@@ -14,8 +14,17 @@ export default function ProjectsProvider({ children }) {
       .catch((error) => console.log(error));
   }, [setProjects]);
 
+  const createProject = (project) => {
+    return Api.createProject(project).then(({ data }) => {
+      const newProjects = { ...projects };
+      newProjects[data] = { id: data, components: [], ...project };
+      setProjects(newProjects);
+      return data;
+    });
+  };
+
   return (
-    <ProjectsContext.Provider value={{ projects, setProjects }}>
+    <ProjectsContext.Provider value={{ projects, setProjects, createProject }}>
       {children}
     </ProjectsContext.Provider>
   );

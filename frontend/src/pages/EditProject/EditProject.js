@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory, useParams } from "react-router";
 import Api from "../../service/api";
-import { useProjects } from "../../context/Projects";
+import { useProjects } from "../../context/ProjectsContext";
 
 function EditProject() {
   let { id } = useParams();
@@ -79,6 +79,10 @@ function EditProject() {
       ) : (
         <p>Loading</p>
       )}
+      <div className="preview">
+        <img src={image} alt="" />
+        <h6>Preview</h6>
+      </div>
     </div>
   );
 }

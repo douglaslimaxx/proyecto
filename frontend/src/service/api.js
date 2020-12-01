@@ -12,7 +12,9 @@ export default {
   getProjects: () => {
     return connection.get("/");
   },
-  createProject: (project) => connection.post("/", project),
+  createProject: (project) => {
+    return connection.post("/", project);
+  },
   updateProject: (project) => connection.put("/" + project.id, project),
   deleteProject: (id) => connection.delete("/" + id),
   addComponent: (component, id) =>

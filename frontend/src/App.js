@@ -6,7 +6,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Home from "./pages/HomePage/Home";
 import CreatePage from "./pages/CreatePage/CreatePage";
 import ProjectPage from "./pages/ProjectPage/ProjectPage";
-import ProjectsProvider from "./context/Projects";
+import ProjectsProvider from "./context/ProjectsContext";
 import EditProject from "./pages/EditProject/EditProject";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";

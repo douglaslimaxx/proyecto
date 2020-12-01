@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./ProjectPage.css";
 import ProjectComponent from "../../components/ProjectComponent/ProjectComponent";
 import AddComponent from "../../components/AddComponent/AddComponent";
-import { useProjects } from "../../context/Projects";
+import { useProjects } from "../../context/ProjectsContext";
 import Api from "../../service/api";
 
 function ProjectPage() {

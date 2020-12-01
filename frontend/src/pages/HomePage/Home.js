@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 import Project from "../../components/Project/Project";
 import Search from "../../components/Search/Search";
-import { useProjects } from "../../context/Projects";
+import { useProjects } from "../../context/ProjectsContext";
 
 function Home() {
   const [search, setSearch] = useState("");
