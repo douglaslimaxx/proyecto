@@ -51,15 +51,17 @@ function ProjectPage() {
           </div>
           <div className="components">
             {project.components.length > 0 ? (
-              project.components.map((component) => (
-                <ProjectComponent
-                  key={component.name}
-                  name={component.name}
-                  priority={component.priority}
-                  done={component.done}
-                  projectId={id}
-                />
-              ))
+              project.components
+                .sort((a, b) => b.priority - a.priority)
+                .map((component) => (
+                  <ProjectComponent
+                    key={component.name}
+                    name={component.name}
+                    priority={component.priority}
+                    done={component.done}
+                    projectId={id}
+                  />
+                ))
             ) : (
               <p>Projeto sem componentes</p>
             )}
@@ -69,6 +71,7 @@ function ProjectPage() {
       ) : (
         <p>Loading</p>
       )}
+      <p>*obs: Os componentes são ordenados da maior prioridade para a menor</p>
     </div>
   );
 }
