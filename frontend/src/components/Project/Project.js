@@ -22,7 +22,6 @@ function Project(props) {
       <p className="project-name">{props.name}</p>
       <p className="project-description">{props.description}</p>
       <p className="project-category">{props.category}</p>
-      {/* <p className="project-progress">{props.progress}</p> */}
       <p className="project-progress">{getProgress(props.components)}</p>
     </div>
   );

@@ -5,16 +5,15 @@ import "./ProjectPage.css";
 import ProjectComponent from "../../components/ProjectComponent/ProjectComponent";
 import AddComponent from "../../components/AddComponent/AddComponent";
 import { useProjects } from "../../context/ProjectsContext";
-import Api from "../../service/api";
 
 function ProjectPage() {
   let { id } = useParams();
-  const { projects } = useProjects();
+  const { projects, deleteProject } = useProjects();
   const project = projects[id];
   const history = useHistory();
 
   const handleDelete = () => {
-    Api.deleteProject(id);
+    deleteProject(id);
     history.push("/");
   };
 

@@ -71,7 +71,6 @@ module.exports = {
 
   deleteProject: (req, res) => {
     const { id } = req.params;
-    // const removed = projects.splice(id, 1);
     const removed = delete projects[id];
     res.status(204).json(removed);
   },

@@ -23,8 +23,30 @@ export default function ProjectsProvider({ children }) {
     });
   };
 
+  const updateProject = (project) => {
+    Api.updateProject(project).then(() => {
+      const newProjects = { ...projects };
+      newProjects[project.id] = {
+        id: project.id,
+        components: newProjects[project.id].components,
+        ...project,
+      };
+      setProjects(newProjects);
+    });
+  };
+
+  const deleteProject = (id) => {
+    Api.deleteProject(id).then(() => {
+      const newProjects = { ...projects };
+      delete newProjects[id];
+      setProjects(newProjects);
+    });
+  };
+
   return (
-    <ProjectsContext.Provider value={{ projects, setProjects, createProject }}>
+    <ProjectsContext.Provider
+      value={{ projects, createProject, deleteProject, updateProject }}
+    >
       {children}
     </ProjectsContext.Provider>
   );

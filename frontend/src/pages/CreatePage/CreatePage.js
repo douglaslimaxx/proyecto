@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Api from "../../service/api";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useProjects } from "../../context/ProjectsContext";
@@ -32,7 +31,6 @@ function CreatePage() {
       description: description,
       category: category,
     }).then((data) => {
-      console.log(data);
       history.push("/projects/" + data);
     });
   };

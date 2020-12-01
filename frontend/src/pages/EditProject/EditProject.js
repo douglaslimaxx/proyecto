@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { useHistory, useParams } from "react-router";
-import Api from "../../service/api";
 import { useProjects } from "../../context/ProjectsContext";
 
 function EditProject() {
   let { id } = useParams();
-  const { projects } = useProjects();
+  const { projects, updateProject } = useProjects();
 
   const project = projects[id];
-  console.log(project);
 
   const [name, setName] = useState(project.name);
   const [image, setImage] = useState(project.img);
@@ -30,7 +28,7 @@ function EditProject() {
   };
 
   const editProject = () => {
-    Api.updateProject({
+    updateProject({
       id: id,
       name: name,
       img: image,
@@ -77,8 +75,8 @@ function EditProject() {
           <button onClick={editProject}>Salvar</button>
         </div>
       ) : (
-        <p>Loading</p>
-      )}
+          <p>Loading</p>
+        )}
       <div className="preview">
         <img src={image} alt="" />
         <h6>Preview</h6>
