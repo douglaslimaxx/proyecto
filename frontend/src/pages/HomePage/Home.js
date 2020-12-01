@@ -70,9 +70,9 @@ function Home() {
           .sort(ORDER_BY[sortSelect].comparator)
           .map((project) => (
             <Link
+              key={project.id}
               className="project-link"
               to={"/projects/" + project.id}
-              key={project.id}
             >
               <Project
                 img={project.img}
