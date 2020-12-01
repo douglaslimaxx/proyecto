@@ -55,12 +55,13 @@ function Home() {
     <div className="Home">
       <h2>Lista de projetos</h2>
       <Search search={search} setSearch={setSearch} />
-      <br />
-      <FilterSelect
-        categorySelect={categorySelect}
-        handleSelect={handleSelect}
-      />
-      <SortSelect sortSelect={sortSelect} handleSelect={handleSelect} />
+      <div className="selects">
+        <FilterSelect
+          categorySelect={categorySelect}
+          handleSelect={handleSelect}
+        />
+        <SortSelect sortSelect={sortSelect} handleSelect={handleSelect} />
+      </div>
       <div id="container">
         {Object.values(projects)
           .filter((project) =>

@@ -29,9 +29,6 @@ div#container {
   margin: 15px;
 }
 
-/*.Home input {
-  padding: 8px;
-  border: thin blue 1px;
-  border-radius: 10px;
-  height: 30px;
-}*/
+.selects {
+  margin-bottom: 2px;
+}

@@ -17,8 +17,8 @@ function ProjectComponent(props) {
       {props.done ? (
         <span>Realizado</span>
       ) : (
-        <button onClick={handleClick}>realizar</button>
-      )}
+          <button onClick={handleClick} id="done-button">realizar</button>
+        )}
       <button onClick={handleDelete}>delete</button>
     </div>
   );

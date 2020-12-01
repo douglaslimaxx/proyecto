@@ -1,4 +1,5 @@
 import React from "react";
+import "./FilterSelect.css";
 
 function FilterSelect(props) {
   const { categorySelect, handleSelect } = props;
